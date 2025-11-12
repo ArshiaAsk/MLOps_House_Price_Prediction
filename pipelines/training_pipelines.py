@@ -5,6 +5,7 @@ from steps.feature_engineering_step import feature_engineering_step
 from steps.outlier_detection_step import outlier_detection_step
 from steps.data_splitter_step import data_splitter_step
 from steps.model_building_step import model_building_step
+from steps.model_evaluator_step import model_evaluator_step
 
 @pipeline(
     model=Model(
@@ -13,7 +14,7 @@ from steps.model_building_step import model_building_step
 )
 def ml_pipeline():
     raw_data = data_ingestion_step(
-        file_path="C:/Users/2023/Desktop/Arshia_project/MlOps_project/House_Price_Prediction/data/archive.zip"
+        file_path="/home/arshiaask/projects/MLOps/MLOps_House_Price_Prediction-main/data/archive.zip"
     )
     
     filled_data = handle_missing_values_step(raw_data)
@@ -27,3 +28,12 @@ def ml_pipeline():
     X_train, X_test, y_train, y_test = data_splitter_step(clean_data, target_column="SalePrice")    
     
     model = model_building_step(X_train=X_train, y_train=y_train)
+
+    evaluation_metrics, mse = model_evaluator_step(
+        trainded_model=model, X_test=X_test, y_test=y_test
+    )
+
+    return model
+
+# if __name__ == "__main__":
+#     run = ml_pipeline()

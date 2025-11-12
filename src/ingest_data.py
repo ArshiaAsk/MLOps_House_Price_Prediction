@@ -44,7 +44,7 @@ class DataIngestorFactory:
         
 
 if __name__ == "__main__":
-    file_path = "C:/Users/2023/Desktop/Arshia_project/MlOps_project/House_Price_Prediction/data/archive.zip"
+    file_path = "/home/arshiaask/projects/MLOps/MLOps_House_Price_Prediction-main/data/archive.zip"
     
     file_extension = os.path.splitext(file_path)[1]
 
