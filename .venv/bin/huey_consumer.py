@@ -1,4 +1,4 @@
-#!/home/arshiaask/projects/MLOps/MLOps_House_Price_Prediction-main/.venv/bin/python3
+#!/home/arshiaask/projects/MLOps/MLOps_House_Price_Prediction-main/.venv/bin/python3.12
 
 import logging
 import os
