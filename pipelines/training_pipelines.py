@@ -14,7 +14,7 @@ from steps.model_evaluator_step import model_evaluator_step
 )
 def ml_pipeline():
     raw_data = data_ingestion_step(
-        file_path="/home/arshiaask/projects/MLOps/MLOps_House_Price_Prediction-main/data/archive.zip"
+        file_path="/home/arshiaask/projects/MLOps_House_Price_Prediction/data/archive.zip"
     )
     
     filled_data = handle_missing_values_step(raw_data)
@@ -30,7 +30,7 @@ def ml_pipeline():
     model = model_building_step(X_train=X_train, y_train=y_train)
 
     evaluation_metrics, mse = model_evaluator_step(
-        trainded_model=model, X_test=X_test, y_test=y_test
+        trained_model=model, X_test=X_test, y_test=y_test
     )
 
     return model
